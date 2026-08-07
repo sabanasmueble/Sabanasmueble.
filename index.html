@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabanas &amp; Mueble Limited — Interior Design, Lagos</title>
+<meta name="description" content="Sabanas & Mueble Limited is a full-service interior design firm in Lagos, Nigeria — pre-construction consultation, sustainable interior architecture, project management, and curated events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Petit+Formal+Script&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6EDE4;
+    --espresso:#3A2E26;
+    --periwinkle:#9CA1BE;
+    --periwinkle-deep:#7D82A0;
+    --sage:#71805A;
+    --brass:#B08D4F;
+    --blush:#EFDCD1;
+    --ink-soft:#6B5D52;
+    --skew:-10deg;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--ivory);
+    color:var(--espresso);
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--espresso); color:var(--ivory);
+    padding:.75em 1.25em; z-index:999;
+  }
+  .skip-link:focus{left:1em; top:1em;}
+
+  :focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    letter-spacing:-0.01em;
+  }
+
+  .script{
+    font-family:'Petit Formal Script', cursive;
+    font-weight:400;
+    color:var(--sage);
+  }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 clamp(20px, 5vw, 56px); }
+
+  /* Ribbon — the site's signature motif, taken directly from the brand's own
+     skewed banner mark and reused as eyebrow labels, buttons and dividers */
+  .ribbon{
+    display:inline-block;
+    background:var(--periwinkle);
+    padding:.55em 1.6em;
+    transform:skewX(var(--skew));
+    box-shadow: 4px 4px 0 rgba(58,46,38,0.08);
+  }
+  .ribbon > span{
+    display:inline-block;
+    transform:skewX(calc(var(--skew) * -1));
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--espresso);
+  }
+  .ribbon.brass{ background:var(--brass); }
+  .ribbon.brass > span{ color:var(--ivory); }
+  .ribbon.sage{ background:var(--sage); }
+  .ribbon.sage > span{ color:var(--ivory); }
+  .ribbon.outline{ background:transparent; border:1.5px solid var(--espresso); box-shadow:none; }
+  .ribbon.outline > span{ color:var(--espresso); }
+
+  .btn{
+    display:inline-block;
+    background:var(--espresso);
+    color:var(--ivory) !important;
+    text-decoration:none;
+    padding:.9em 1.9em;
+    transform:skewX(var(--skew));
+    font-weight:500;
+    font-size:.95rem;
+    letter-spacing:.02em;
+    transition:transform .25s ease, background .25s ease;
+    border:none;
+    cursor:pointer;
+  }
+  .btn > span{ display:inline-block; transform:skewX(calc(var(--skew) * -1)); }
+  .btn:hover{ background:var(--sage); transform:skewX(var(--skew)) translateY(-2px); }
+  .btn.ghost{ background:transparent; border:1.5px solid var(--espresso); }
+  .btn.ghost:hover{ background:var(--espresso); }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(246,237,228,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(58,46,38,0.08);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    display:flex; align-items:baseline; gap:.4em;
+  }
+  .logo .mark{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px;
+    background:var(--espresso); color:var(--ivory);
+    font-weight:600; font-size:.95rem;
+    transform:skewX(var(--skew));
+  }
+  .logo .mark span{ transform:skewX(calc(var(--skew) * -1)); }
+
+  .nav-links{ display:flex; gap:2.1rem; list-style:none; align-items:center; }
+  .nav-links a{
+    text-decoration:none; font-size:.9rem; font-weight:500;
+    letter-spacing:.02em; position:relative;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-6px; height:1.5px; width:0;
+    background:var(--sage); transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:1.5rem; }
+
+  .burger{ display:none; background:none; border:none; cursor:pointer; padding:.5em; }
+  .burger span{ display:block; width:24px; height:2px; background:var(--espresso); margin:5px 0; transition:.3s; }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:fixed; top:76px; left:0; right:0; bottom:0;
+      background:var(--ivory); flex-direction:column; justify-content:center;
+      gap:2.2rem; transform:translateX(100%); transition:transform .35s ease;
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-links a{ font-size:1.4rem; }
+    .burger{ display:block; }
+    .nav-cta .btn{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:flex-end;
+    background:#000;
+  }
+  .hero-img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:.92;
+  }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(58,46,38,0.05) 0%, rgba(58,46,38,0.15) 45%, rgba(20,16,13,0.88) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    width:100%;
+    padding:0 clamp(20px,5vw,56px) clamp(50px,8vw,90px);
+    max-width:1180px; margin:0 auto;
+    opacity:0; animation:riseIn 1s ease .3s forwards;
+  }
+  @keyframes riseIn{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+
+  .hero-eyebrow{ margin-bottom:1.6rem; }
+  .hero-eyebrow .ribbon span{ color:var(--espresso); }
+
+  .hero h1{
+    color:var(--ivory);
+    font-size:clamp(2.4rem, 6vw, 4.6rem);
+    font-weight:300;
+    line-height:1.04;
+    max-width:14ch;
+    margin-bottom:1.1rem;
+  }
+  .hero h1 em{ font-style:italic; font-weight:400; color:var(--periwinkle); }
+
+  .hero-tagline{
+    font-size:clamp(1.3rem, 2.4vw, 1.8rem);
+    margin-bottom:2.4rem;
+    display:block;
+  }
+
+  .hero-ctas{ display:flex; gap:1.1rem; flex-wrap:wrap; }
+  .hero-ctas .btn.ghost{ border-color:var(--ivory); color:var(--ivory) !important; }
+
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    z-index:2; color:var(--ivory); opacity:.75; font-size:.72rem;
+    letter-spacing:.2em; text-transform:uppercase; text-align:center;
+  }
+  .scroll-cue .line{
+    width:1px; height:34px; background:var(--ivory); margin:.6em auto 0;
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
+
+  /* ---------- SECTION GENERICS ---------- */
+  section{ padding:clamp(70px,10vw,130px) 0; }
+  .eyebrow-row{ margin-bottom:1.6rem; }
+  .section-head{ max-width:640px; margin-bottom:3.2rem; }
+  .section-head h2{
+    font-size:clamp(1.9rem, 4vw, 2.9rem);
+    font-weight:400; margin-top:.7rem;
+  }
+  .lede{ color:var(--ink-soft); font-size:1.06rem; max-width:60ch; margin-top:1rem;}
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- WHO WE ARE ---------- */
+  .about{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(30px,6vw,80px); align-items:center; }
+  .about-img{ position:relative; }
+  .about-img img{ width:100%; height:520px; object-fit:cover; }
+  .about-img::before{
+    content:''; position:absolute; top:-18px; left:-18px; right:18px; bottom:18px;
+    border:1.5px solid var(--brass); z-index:-1;
+  }
+  .about-text p{ color:var(--ink-soft); margin-bottom:1.1rem; font-size:1.02rem; }
+  .about-text p:first-of-type{ margin-top:1.4rem; }
+  .stat-row{ display:flex; gap:2.6rem; margin-top:2.2rem; flex-wrap:wrap; }
+  .stat-row div strong{ display:block; font-family:'Fraunces', serif; font-size:1.9rem; font-weight:500; color:var(--sage); }
+  .stat-row div span{ font-size:.8rem; color:var(--ink-soft); letter-spacing:.03em; }
+
+  @media (max-width:860px){
+    .about{ grid-template-columns:1fr; }
+    .about-img img{ height:340px; }
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-band{ background:var(--espresso); color:var(--ivory); }
+  .services-band .section-head .lede{ color:#C9BFB4; }
+  .services-band .ribbon.outline{ border-color:var(--ivory); }
+  .services-band .ribbon.outline span{ color:var(--ivory); }
+
+  .service-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5px; background:rgba(246,237,228,0.14); }
+  .service-card{
+    background:var(--espresso); padding:2.6rem clamp(1.4rem,3vw,2.6rem);
+    position:relative; overflow:hidden;
+  }
+  .service-card .num-tag{
+    display:inline-block; font-family:'Fraunces', serif; font-style:italic;
+    color:var(--periwinkle); font-size:.95rem; margin-bottom:1.2rem;
+  }
+  .service-card h3{ font-size:1.4rem; font-weight:500; margin-bottom:.7rem; }
+  .service-card p{ color:#C9BFB4; font-size:.94rem; max-width:38ch; }
+  .service-card .bg-photo{
+    position:absolute; right:-10px; bottom:-10px; width:120px; height:120px;
+    object-fit:cover; opacity:.16; filter:grayscale(30%);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .service-card:hover .bg-photo{ opacity:.34; transform:scale(1.08); }
+
+  @media (max-width:700px){ .service-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- PORTFOLIO / GALLERY ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-auto-rows:150px;
+    gap:12px;
+  }
+  .g-item{
+    position:relative; overflow:hidden; cursor:default;
+  }
+  .g-item img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .g-item:hover img{ transform:scale(1.07); }
+  .g-item .cap{
+    position:absolute; left:14px; bottom:14px; z-index:2;
+    opacity:0; transform:translateY(8px); transition:opacity .3s ease, transform .3s ease;
+  }
+  .g-item:hover .cap{ opacity:1; transform:translateY(0); }
+  .g-item::after{
+    content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(20,16,13,0.65) 100%);
+    opacity:0; transition:opacity .3s ease;
+  }
+  .g-item:hover::after{ opacity:1; }
+
+  .g1{ grid-column:span 3; grid-row:span 2; }
+  .g2{ grid-column:span 3; grid-row:span 2; }
+  .g3{ grid-column:span 2; grid-row:span 2; }
+  .g4{ grid-column:span 2; grid-row:span 2; }
+  .g5{ grid-column:span 2; grid-row:span 2; }
+  .g6{ grid-column:span 3; grid-row:span 2; }
+  .g7{ grid-column:span 3; grid-row:span 2; }
+
+  @media (max-width:760px){
+    .gallery{ grid-template-columns:repeat(2,1fr); grid-auto-rows:190px; }
+    .g1,.g2,.g3,.g4,.g5,.g6,.g7{ grid-column:span 1; grid-row:span 2; }
+  }
+
+  /* ---------- WHY CHOOSE US ---------- */
+  .why{ position:relative; background:var(--blush); }
+  .why-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,6vw,70px); align-items:center; }
+  .why-img{ height:560px; overflow:hidden; position:relative; }
+  .why-img img{ width:100%; height:100%; object-fit:cover; }
+  .pillars{ display:flex; flex-direction:column; gap:2.1rem; }
+  .pillar{ display:flex; gap:1.2rem; align-items:flex-start; }
+  .pillar .tag{
+    flex-shrink:0; width:44px; height:44px; background:var(--sage);
+    transform:skewX(var(--skew));
+  }
+  .pillar h3{ font-size:1.25rem; font-weight:500; margin-bottom:.35rem; }
+  .pillar p{ color:var(--ink-soft); font-size:.96rem; max-width:44ch; }
+
+  @media (max-width:860px){
+    .why-grid{ grid-template-columns:1fr; }
+    .why-img{ height:320px; order:2; }
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ background:var(--espresso); color:var(--ivory); position:relative; overflow:hidden; }
+  .contact::before{
+    content:''; position:absolute; width:640px; height:640px; border-radius:50%;
+    background:radial-gradient(circle, rgba(156,161,190,0.14), transparent 70%);
+    top:-200px; right:-160px;
+  }
+  .contact-inner{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,6vw,80px); position:relative; z-index:2; }
+  .contact h2{ font-size:clamp(2rem,4.4vw,3.2rem); font-weight:300; max-width:12ch; margin:1rem 0 1.6rem; }
+  .contact .lede{ color:#C9BFB4; }
+
+  .contact-list{ list-style:none; margin-top:2.4rem; display:flex; flex-direction:column; gap:1.3rem; }
+  .contact-list a, .contact-list span{
+    text-decoration:none; font-size:1.02rem; display:flex; align-items:center; gap:.9rem;
+  }
+  .contact-list .ico{
+    width:38px; height:38px; border:1.5px solid var(--periwinkle); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:.85rem;
+  }
+
+  .contact-card{
+    background:rgba(246,237,228,0.05); border:1px solid rgba(246,237,228,0.14);
+    padding:clamp(1.8rem,4vw,2.8rem);
+  }
+  .contact-card .script{ font-size:1.6rem; display:block; margin-bottom:.6rem; color:var(--periwinkle); }
+  .contact-card p{ color:#C9BFB4; margin-bottom:1.8rem; font-size:.96rem; }
+
+  footer{
+    border-top:1px solid rgba(246,237,228,0.12);
+    margin-top:clamp(60px,8vw,90px);
+    padding-top:2rem;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+    font-size:.82rem; color:#9C8F84;
+  }
+
+  @media (max-width:860px){ .contact-inner{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <nav class="wrap">
+    <a href="#" class="logo"><span class="mark"><span>S&amp;M</span></span> Sabanas &amp; Mueble</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Who We Are</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn" href="https://wa.me/2348090952608" target="_blank" rel="noopener"><span>Start a project</span></a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="images/hero.jpg" alt="A sculptural pair of metal wing wall art pieces above a dining table, lit by a brass globe chandelier, in a Sabanas & Mueble interior design project" class="hero-img">
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="ribbon"><span>Interior Design · Lagos, Nigeria</span></span>
+      </div>
+      <h1>Spaces built around how you <em>actually</em> live.</h1>
+      <span class="hero-tagline script">Design at its core...</span>
+      <div class="hero-ctas">
+        <a class="btn" href="https://wa.me/2348090952608" target="_blank" rel="noopener"><span>Start a project</span></a>
+        <a class="btn ghost" href="#portfolio"><span>See our work</span></a>
+      </div>
+    </div>
+    <div class="scroll-cue">Scroll<div class="line"></div></div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section id="about">
+    <div class="wrap about">
+      <div class="about-img reveal">
+        <img src="images/office.jpg" alt="A warm wood-toned home office with open shelving, curated books and objects, and a walnut desk">
+      </div>
+      <div class="about-text reveal">
+        <span class="ribbon sage"><span>Who we are</span></span>
+        <h2 style="margin-top:1rem;">A client-focused design studio, from first sketch to final styling.</h2>
+        <p>Sabanas &amp; Mueble Limited is a full-service interior design firm based in Lagos. We build every project around the people who'll actually live in it — which is where our bespoke approach and our reputation for satisfied clients both come from.</p>
+        <p>Design, art and architecture sit at the centre of what we do. The result is spaces that are beautiful without giving up function, and events that feel considered down to the last detail.</p>
+        <div class="stat-row">
+          <div><strong>4</strong><span>Core services</span></div>
+          <div><strong>100%</strong><span>Client-focused briefs</span></div>
+          <div><strong>Lagos</strong><span>Based &amp; building</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services-band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="ribbon outline"><span>What we do</span></span>
+        <h2>Four ways we take a project from idea to lived-in.</h2>
+        <p class="lede">Every engagement starts with your brief and ends with a space that works — practically and beautifully.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <span class="num-tag">01</span>
+          <h3>Pre-construction consultation</h3>
+          <p>We come in early — reviewing layout, flow and structural decisions before a single finish is chosen.</p>
+          <img class="bg-photo" src="images/wardrobe_gold.jpg" alt="">
+        </div>
+        <div class="service-card reveal">
+          <span class="num-tag">02</span>
+          <h3>Sustainable interior architecture &amp; design</h3>
+          <p>Kitchens, baths, lighting selection and wall finishes, designed to last and to feel like you.</p>
+          <img class="bg-photo" src="images/bathtub.jpg" alt="">
+        </div>
+        <div class="service-card reveal">
+          <span class="num-tag">03</span>
+          <h3>Project management</h3>
+          <p>One team accountable for timeline, budget and craftsmanship, so you're never chasing contractors.</p>
+          <img class="bg-photo" src="images/ceiling_light.jpg" alt="">
+        </div>
+        <div class="service-card reveal">
+          <span class="num-tag">04</span>
+          <h3>Events</h3>
+          <p>Carefully curated events and installations, built with the same eye we bring to permanent interiors.</p>
+          <img class="bg-photo" src="images/event_heart.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="ribbon"><span>Portfolio</span></span>
+        <h2>A closer look at the work.</h2>
+        <p class="lede">From floor-plan through to final styling — a sample of rooms and moments we've shaped for clients across Lagos.</p>
+      </div>
+      <div class="gallery">
+        <div class="g-item g1 reveal">
+          <img src="images/living_room.jpg" alt="A neutral-toned living room with a floor-standing AC unit, framed artwork and layered textiles">
+          <div class="cap"><span class="ribbon brass"><span>Living room</span></span></div>
+        </div>
+        <div class="g-item g2 reveal">
+          <img src="images/bedroom_tv.jpg" alt="A bedroom with a wall-mounted television, patterned curtains and gold ceiling trim">
+          <div class="cap"><span class="ribbon brass"><span>Primary bedroom</span></span></div>
+        </div>
+        <div class="g-item g3 reveal">
+          <img src="images/wardrobe.jpg" alt="Custom walnut wardrobes with glass-panel doors">
+          <div class="cap"><span class="ribbon brass"><span>Bespoke joinery</span></span></div>
+        </div>
+        <div class="g-item g4 reveal">
+          <img src="images/bathroom_vanity.jpg" alt="A minimal white bathroom vanity with orchid detail and glass shower screen">
+          <div class="cap"><span class="ribbon brass"><span>Bathroom</span></span></div>
+        </div>
+        <div class="g-item g5 reveal">
+          <img src="images/event_heart.jpg" alt="A floral heart-shaped installation with candles for a curated event, overlooking the lagoon">
+          <div class="cap"><span class="ribbon brass"><span>Curated event</span></span></div>
+        </div>
+        <div class="g-item g6 reveal">
+          <img src="images/bedroom_green.jpg" alt="A calm bedroom in sage green tones with coastal artwork above the headboard">
+          <div class="cap"><span class="ribbon brass"><span>Guest room</span></span></div>
+        </div>
+        <div class="g-item g7 reveal">
+          <img src="images/ceiling_light.jpg" alt="A geometric cove-lit ceiling detail above a modern living space">
+          <div class="cap"><span class="ribbon brass"><span>Lighting design</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why" class="why">
+    <div class="wrap why-grid">
+      <div class="why-img reveal">
+        <img src="images/bathtub.jpg" alt="A freestanding stone bathtub against a warm concrete wall">
+      </div>
+      <div class="reveal">
+        <span class="ribbon sage"><span>Why choose us</span></span>
+        <h2 style="margin-top:1rem; font-size:clamp(1.9rem,4vw,2.6rem);">Design that changes how a space feels to live in.</h2>
+        <div class="pillars" style="margin-top:2.2rem;">
+          <div class="pillar">
+            <span class="tag"></span>
+            <div>
+              <h3>Human-centred design</h3>
+              <p>We look for the deeper connection between you and your space — not just what looks good in a photo.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="tag"></span>
+            <div>
+              <h3>Attention to detail</h3>
+              <p>From joinery hardware to lighting temperature, the small decisions get the same scrutiny as the big ones.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="tag"></span>
+            <div>
+              <h3>Quality, built to last</h3>
+              <p>Materials and craftsmanship chosen to hold up well beyond the day we hand the keys back.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap contact-inner">
+      <div class="reveal">
+        <span class="ribbon"><span>Get in touch</span></span>
+        <h2>Let's transform your ideas into reality.</h2>
+        <p class="lede">Tell us about your space, your timeline and your budget — we'll take it from there.</p>
+        <ul class="contact-list">
+          <li><span class="ico">@</span><a href="mailto:sabanasinquiry@gmail.com">sabanasinquiry@gmail.com</a></li>
+          <li><span class="ico">☎</span><a href="tel:+2348090952608">+234 (0) 809 095 2608</a></li>
+          <li><span class="ico">f</span><a href="https://facebook.com/sabanasandmueble" target="_blank" rel="noopener">sabanas &amp; mueble</a></li>
+          <li><span class="ico">◎</span><a href="https://instagram.com/sabanas_mueble" target="_blank" rel="noopener">sabanas_mueble</a></li>
+        </ul>
+      </div>
+      <div class="contact-card reveal">
+        <span class="script">Design at its core...</span>
+        <p>Most projects start with a short conversation on WhatsApp. Send a few photos of the space and what's not working for you yet.</p>
+        <a class="btn" href="https://wa.me/2348090952608" target="_blank" rel="noopener"><span>Message us on WhatsApp</span></a>
+      </div>
+    </div>
+    <div class="wrap">
+      <footer>
+        <span>© <span id="year"></span> Sabanas &amp; Mueble Limited. Lagos, Nigeria.</span>
+        <span>Full-service interior design &amp; curated events.</span>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const burger = document.getElementById('burgerBtn');
+  const links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
